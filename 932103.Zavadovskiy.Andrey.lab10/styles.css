@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+.curtain {
+    background-image: url('Images/background.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: transform 0.2s ease-out;
+    z-index: 100;
+}
+
+.curtain:hover {
+    transform: translateY(-5%);
+}
+
+.curtain.open {
+    transform: translateY(-100%);
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+}
+
+.light {
+    border-bottom: 650px solid yellow;
+    border-left: 400px solid transparent;
+    border-right: 400px solid transparent;
+    width: 100px;
+    height: 0;
+    position: absolute;
+    top: 68px;
+    left: calc(50% - 450px);
+    z-index: 15;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.light.on {
+    visibility: visible;
+    opacity: 0.5;
+}
+
+.objects {
+    display: grid;
+    gap: 100px;
+}
+
+.obj {
+    display: flex;
+    justify-content: center;
+}
+
+.lamp_image {
+    width: 300px;
+    height: 300px;
+    position: relative;
+}
+
+.lamp_hang {
+    position: absolute;
+    top: 68px;
+    left: 117px;
+    width: 15px;
+    height: 65px;
+    background-color: #000;
+    transition: height 0.1s ease;
+}
+
+.lamp_hang:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(50% - 1px);
+    width: 2px;
+    height: 100%;
+    border-radius: 50%;
+    background-color: grey;
+}
+
+.lamp_hang:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 5px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: darkgoldenrod;
+}
+
+.lamp_image.mousedown .lamp_hang {
+    height: 75px;
+}
+
+.objects_figures {
+    display: none;
+}
+
+.objects_figures.display {
+    display: flex;
+}
+
+.objects_mage {
+    position: absolute;
+    right: 55%;
+}
+
+.focus {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.objects_focus {
+    flex: 0 0 30%;
+
+}
+
+.objects_bird, .objects_rabbit {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    visibility: visible;
+    right: -85%;
+    top: 0;
+    opacity: 0.5;
+    transition: all 0.5s ease;
+    z-index: 20;
+}
+
+.objects_bird.hide, .objects_rabbit.hide {
+    top: 40%;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.objects_hat {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: -90%;
+    margin-top: 50%;
+}
